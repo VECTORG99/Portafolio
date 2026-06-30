@@ -1,30 +1,14 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import profile from '../data/profile.js';
 
-const experiences = [
-  {
-    period: '2023 — Presente',
-    title: 'Ingeniería en Informática (IA)',
-    org: 'DUOC UC',
-    description: 'Estudiante universitario con mención en inteligencia artificial. Formación en desarrollo de software, algoritmos, estructuras de datos y sistemas inteligentes.',
-    type: 'education',
-  },
-  {
-    period: '2026',
-    title: 'Desarrollador Fullstack',
-    org: 'Certificación DUOC UC',
-    description: 'Certificación profesional en desarrollo fullstack, cubriendo frontend, backend, bases de datos y despliegue de aplicaciones web.',
-    type: 'certification',
-  },
-  {
-    period: '2026 — Presente',
-    title: 'Miembro',
-    org: 'open-source Santiago',
-    description: 'Participación activa en la comunidad de contribuidores voluntarios Open Source de Santiago, colaborando en proyectos de código abierto.',
-    type: 'community',
-  },
-];
+const typeEmoji = {
+  education: '🎓',
+  community: '🤝',
+  creator: '🎨',
+  certification: '📜',
+};
 
 const timelineVariants = {
   hidden: { opacity: 0 },
@@ -60,9 +44,9 @@ export default function Experience() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <span className="section-label">Trayectoria</span>
+          <span className="section-label">{profile.experience.label}</span>
           <h2 className="section-title">
-            Formación & <span className="gradient-text">Experiencia</span>
+            {profile.experience.title} <span className="gradient-text">{profile.experience.titleHighlight}</span>
           </h2>
         </motion.div>
 
@@ -78,7 +62,7 @@ export default function Experience() {
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
           >
-            {experiences.map((exp, idx) => (
+            {profile.experience.items.map((exp, idx) => (
               <motion.div key={idx} variants={itemVariants} className="exp-card">
                 <div className="exp-card__dot" />
                 <div className="exp-card__content">
@@ -87,13 +71,7 @@ export default function Experience() {
                   <span className="exp-card__org">{exp.org}</span>
                   <p className="exp-card__desc">{exp.description}</p>
                   <span className={`exp-card__badge exp-card__badge--${exp.type}`}>
-                    {exp.type === 'education' && '🎓'}
-                    {exp.type === 'certification' && '📜'}
-                    {exp.type === 'community' && '🤝'}
-                    {' '}
-                    {exp.type === 'education' && 'Estudios'}
-                    {exp.type === 'certification' && 'Certificación'}
-                    {exp.type === 'community' && 'Comunidad'}
+                    {typeEmoji[exp.type]} {exp.typeLabel}
                   </span>
                 </div>
               </motion.div>

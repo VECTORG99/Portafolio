@@ -1,24 +1,6 @@
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-
-const skillCategories = [
-  {
-    title: 'Frontend',
-    skills: ['React', 'JavaScript', 'TypeScript', 'HTML/CSS', 'TailwindCSS'],
-  },
-  {
-    title: 'Backend',
-    skills: ['Node.js', 'Python', 'Express', 'REST APIs', 'SQL/NoSQL'],
-  },
-  {
-    title: 'IA & Datos',
-    skills: ['Machine Learning', 'Python ML', 'Data Analysis', 'LLMs', 'Prompt Engineering'],
-  },
-  {
-    title: 'Herramientas',
-    skills: ['Git/GitHub', 'Docker', 'VS Code', 'Linux', 'Figma'],
-  },
-];
+import profile from '../data/profile';
 
 const containerVariants = {
   hidden: {},
@@ -60,7 +42,7 @@ export default function Skills() {
             }}
             className="section-label"
           >
-            Habilidades
+            {profile.skills.label}
           </motion.span>
           <motion.h2
             variants={{
@@ -69,7 +51,7 @@ export default function Skills() {
             }}
             className="section-title"
           >
-            Stack técnico
+            {profile.skills.title}
           </motion.h2>
         </motion.div>
 
@@ -79,23 +61,21 @@ export default function Skills() {
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
         >
-          {skillCategories.map((cat, idx) => (
-            <motion.div key={cat.title} variants={cardVariants} className="skill-card">
+          {profile.skills.categories.map((cat) => (
+            <motion.div key={cat.name} variants={cardVariants} className="skill-card">
               <div className="skill-card__header">
-                <span className="skill-card__icon">
-                  {['{ }', '</>', '⚙', '🛠'][idx]}
-                </span>
-                <h3 className="skill-card__title">{cat.title}</h3>
+                <span className="skill-card__icon">{cat.icon}</span>
+                <h3 className="skill-card__title">{cat.name}</h3>
               </div>
               <div className="skill-card__list">
-                {cat.skills.map((skill, i) => (
+                {cat.tags.map((tag, i) => (
                   <motion.span
-                    key={skill}
+                    key={tag}
                     custom={i}
                     variants={skillVariants}
                     className="skill-card__tag"
                   >
-                    {skill}
+                    {tag}
                   </motion.span>
                 ))}
               </div>

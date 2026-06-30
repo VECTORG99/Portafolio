@@ -1,16 +1,18 @@
+import profile from '../data/profile';
+
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer__inner">
           <span className="footer__logo">
-            {'<'}<span className="gradient-text">V</span>{'/>'}
+            {'<'}<span className="gradient-text">{profile.dev.firstName.charAt(0)}</span>{'/>'}
           </span>
           <p className="footer__copy">
-            &copy; {new Date().getFullYear()} Diego Hernandez. Todos los derechos reservados.
+            {profile.site.copyright}
           </p>
           <p className="footer__tagline">
-            Construido con React + Vite ✦ Diseño interactivo
+            {profile.site.tagline}
           </p>
         </div>
       </div>

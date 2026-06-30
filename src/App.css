@@ -431,39 +431,7 @@
   height: 380px;
 }
 
-.about__image-placeholder {
-  width: 100%;
-  height: 100%;
-  border-radius: 24px;
-  background: linear-gradient(135deg, var(--accent-dim), var(--bg-card));
-  border: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 5rem;
-  font-weight: 800;
-  color: var(--accent);
-  font-family: 'Fira Code', monospace;
-  position: relative;
-  z-index: 1;
-}
-
-.about__image-glow {
-  position: absolute;
-  top: -20px;
-  left: -20px;
-  right: -20px;
-  bottom: -20px;
-  border-radius: 40px;
-  background: radial-gradient(ellipse at center, var(--accent-dim) 0%, transparent 70%);
-  z-index: 0;
-  animation: glow-pulse 4s ease-in-out infinite;
-}
-
-@keyframes glow-pulse {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
-}
+/* .about__image-wrapper now contains link buttons — no placeholder graphic */
 
 @media (max-width: 968px) {
   .about__grid {
@@ -711,10 +679,6 @@
   box-shadow: 0 8px 30px rgba(14, 165, 233, 0.08);
 }
 
-.project-card--placeholder {
-  opacity: 0.7;
-}
-
 .project-card__visual {
   height: 200px;
   background: var(--bg-card);
@@ -722,11 +686,6 @@
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid var(--border);
-}
-
-.project-card__placeholder-icon {
-  color: var(--text-muted);
-  opacity: 0.5;
 }
 
 .project-card__body {
@@ -763,6 +722,73 @@
 .project-card__footer {
   display: flex;
   gap: 12px;
+}
+
+.project-card__metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.project-card__metric {
+  font-size: 0.75rem;
+  padding: 2px 10px;
+  border-radius: 8px;
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+.project-card--featured {
+  border-color: var(--accent);
+}
+
+.project-card__featured-badge {
+  font-size: 0.85rem;
+  padding: 6px 16px;
+  border-radius: 8px;
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+/* skeleton loading */
+.project-card--skeleton {
+  pointer-events: none;
+}
+
+.project-card--skeleton .project-card__visual,
+.project-card__skeleton-line {
+  background: var(--bg-card);
+  border-radius: 8px;
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+.project-card__skeleton-line {
+  height: 16px;
+  margin-bottom: 10px;
+}
+
+.project-card__skeleton-line--title {
+  height: 22px;
+  width: 60%;
+}
+
+.project-card__skeleton-line--text {
+  width: 100%;
+}
+
+.project-card__skeleton-line--text:nth-child(3) {
+  width: 85%;
+}
+
+.project-card__skeleton-line--short {
+  width: 40%;
+  margin-bottom: 0;
+}
+
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
 }
 
 /* ============================================
@@ -860,6 +886,90 @@
   border-color: var(--accent);
   color: var(--accent);
   background: var(--accent-dim);
+}
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.contact__form-field input,
+.contact__form-field textarea {
+  width: 100%;
+  padding: 14px 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.contact__form-field input:focus,
+.contact__form-field textarea:focus {
+  border-color: var(--accent);
+}
+
+.contact__form-field input::placeholder,
+.contact__form-field textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.contact__form-field input:disabled,
+.contact__form-field textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.contact__form-field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact__form-hint {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.contact__toast {
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.contact__toast--success {
+  background: rgba(100, 255, 218, 0.1);
+  color: var(--accent);
+  border: 1px solid rgba(100, 255, 218, 0.2);
+}
+
+.contact__toast--error {
+  background: rgba(255, 100, 100, 0.1);
+  color: #ff6464;
+  border: 1px solid rgba(255, 100, 100, 0.2);
+}
+
+.contact__cv {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.contact__cv-badge {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0;
 }
 
 /* ============================================

@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import profile from '../data/profile';
 
 export default function About() {
   const containerRef = useRef(null);
@@ -28,7 +29,7 @@ export default function About() {
               transition={{ duration: 0.6 }}
               className="section-label"
             >
-              Sobre mí
+              {profile.about.label}
             </motion.span>
 
             <motion.h2
@@ -37,29 +38,20 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="section-title"
             >
-              Transformando ideas en{' '}
-              <span className="gradient-text">experiencias digitales</span>
+              {profile.about.title}{' '}
+              <span className="gradient-text">{profile.about.titleHighlight}</span>
             </motion.h2>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              Soy estudiante de Ingeniería en Informática con mención en Inteligencia
-              Artificial en DUOC UC. Me apasiona construir software que resuelva
-              problemas reales, combinando desarrollo fullstack con visión de IA.
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              Actualmente certificado como Desarrollador Fullstack y miembro activo
-              de la comunidad open-source Santiago. Busco constantemente aprender
-              nuevas tecnologías y contribuir a proyectos que marquen la diferencia.
-            </motion.p>
+            {profile.about.paragraphs.map((paragraph, i) => (
+              <motion.p
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }}
+              >
+                {paragraph}
+              </motion.p>
+            ))}
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -67,18 +59,12 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="about__stats"
             >
-              <div className="about__stat">
-                <span className="about__stat-number gradient-text">2+</span>
-                <span className="about__stat-label">Años estudiando</span>
-              </div>
-              <div className="about__stat">
-                <span className="about__stat-number gradient-text">10+</span>
-                <span className="about__stat-label">Proyectos</span>
-              </div>
-              <div className="about__stat">
-                <span className="about__stat-number gradient-text">3</span>
-                <span className="about__stat-label">Certificaciones</span>
-              </div>
+              {profile.about.stats.map((stat, i) => (
+                <div key={i} className="about__stat">
+                  <span className="about__stat-number gradient-text">{stat.value}</span>
+                  <span className="about__stat-label">{stat.label}</span>
+                </div>
+              ))}
             </motion.div>
           </motion.div>
 
@@ -92,10 +78,22 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="about__image-wrapper"
             >
-              <div className="about__image-placeholder">
-                <span>VG</span>
-              </div>
-              <div className="about__image-glow" />
+              <a
+                href={profile.dev.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn"
+              >
+                Ver GitHub
+              </a>
+              <a
+                href={profile.dev.linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn--ghost"
+              >
+                Ver LinkedIn
+              </a>
             </motion.div>
           </motion.div>
         </div>

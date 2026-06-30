@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import profile from '../data/profile.js';
 
 export default function Hero() {
   const ref = useRef(null);
@@ -27,7 +28,7 @@ export default function Hero() {
           className="hero__badge"
         >
           <span className="hero__badge-dot" />
-          Disponible para proyectos
+          {profile.hero.badge}
         </motion.div>
 
         <motion.h1
@@ -36,8 +37,8 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
           className="hero__title"
         >
-          Diego{' '}
-          <span className="gradient-text">Hernandez</span>
+          {profile.hero.greeting}{' '}
+          <span className="gradient-text">{profile.hero.highlight}</span>
         </motion.h1>
 
         <motion.p
@@ -46,7 +47,7 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
           className="hero__subtitle"
         >
-          Estudiante de Ingeniería en Informática · Fullstack Developer
+          {profile.hero.role}
         </motion.p>
 
         <motion.p
@@ -55,8 +56,7 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
           className="hero__desc"
         >
-          Construyendo soluciones digitales con foco en inteligencia artificial
-          y desarrollo fullstack. Actualmente en DUOC UC.
+          {profile.hero.description}
         </motion.p>
 
         <motion.div
@@ -65,15 +65,15 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
           className="hero__actions"
         >
-          <a href="#projects" className="btn btn--primary">
-            Ver proyectos
+          <a href={profile.hero.ctaPrimary.href} className="btn btn--primary">
+            {profile.hero.ctaPrimary.text}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <line x1="5" y1="12" x2="19" y2="12" />
               <polyline points="12 5 19 12 12 19" />
             </svg>
           </a>
-          <a href="#contact" className="btn btn--ghost">
-            Contactar
+          <a href={profile.hero.ctaSecondary.href} className="btn btn--ghost">
+            {profile.hero.ctaSecondary.text}
           </a>
         </motion.div>
 
@@ -86,7 +86,7 @@ export default function Hero() {
           <div className="hero__scroll-mouse">
             <div className="hero__scroll-ball" />
           </div>
-          <span>Scroll</span>
+          <span>{profile.hero.scrollLabel}</span>
         </motion.div>
       </motion.div>
     </section>

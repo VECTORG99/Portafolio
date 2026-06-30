@@ -1,12 +1,14 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import profile from '../data/profile';
 
-const links = [
-  { href: '#about', label: 'Sobre mí' },
-  { href: '#skills', label: 'Habilidades' },
-  { href: '#experience', label: 'Experiencia' },
-  { href: '#projects', label: 'Proyectos' },
-  { href: '#contact', label: 'Contacto' },
+const navLinks = [
+  { href: '#about', label: profile.about.label },
+  { href: '#skills', label: profile.skills.label },
+  { href: '#experience', label: profile.experience.label },
+  { href: '#projects', label: profile.projects.label },
+  { href: '#contact', label: profile.contact.label },
+  { href: profile.contact.cvUrl, label: 'CV' },
 ];
 
 export default function Navbar({ theme, toggleTheme }) {
@@ -29,12 +31,12 @@ export default function Navbar({ theme, toggleTheme }) {
       <div className="navbar__inner container">
         <a href="#hero" className="navbar__logo">
           {'<'}
-          <span className="gradient-text">V</span>
+          <span className="gradient-text">{profile.dev.firstName.charAt(0)}</span>
           {'/>'}
         </a>
 
         <div className="navbar__desktop">
-          {links.map(link => (
+          {navLinks.map(link => (
             <a key={link.href} href={link.href} className="navbar__link">
               {link.label}
             </a>
@@ -83,7 +85,7 @@ export default function Navbar({ theme, toggleTheme }) {
             exit={{ opacity: 0, y: -20 }}
             className="navbar__mobile"
           >
-            {links.map(link => (
+            {navLinks.map(link => (
               <a
                 key={link.href}
                 href={link.href}

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Diego Hernandez — CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       RESET & BASE
+       ============================================================ */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 10px; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 10px;
+      color: #1a1a1a;
+      background: #f5f5f5;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ============================================================
+       PAGE
+       ============================================================ */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 20px auto;
+      background: #fff;
+      display: grid;
+      grid-template-columns: 34% 66%;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    /* ============================================================
+       SIDEBAR
+       ============================================================ */
+    .sidebar {
+      background: #0a0a0a;
+      color: #e0e0e0;
+      padding: 28px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #64ffda, #48c6ef);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Fira Code', monospace;
+      font-size: 28px;
+      font-weight: 700;
+      color: #0a0a0a;
+      margin-bottom: 4px;
+    }
+
+    .name-side {
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+
+    .role-side {
+      font-size: 9px;
+      color: #64ffda;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 2px;
+    }
+
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .contact-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 8.5px;
+      color: #b0b0b0;
+      word-break: break-all;
+    }
+
+    .contact-list .icon {
+      width: 16px;
+      flex-shrink: 0;
+      text-align: center;
+      font-size: 11px;
+      color: #64ffda;
+    }
+
+    .sidebar-section-title {
+      font-size: 9px;
+      font-weight: 700;
+      color: #64ffda;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(100,255,218,0.2);
+      margin-bottom: 10px;
+    }
+
+    .skill-group {
+      margin-bottom: 10px;
+    }
+
+    .skill-group-title {
+      font-size: 8.5px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .skill-tag {
+      font-size: 7.5px;
+      padding: 2px 8px;
+      border-radius: 3px;
+      border: 1px solid rgba(100,255,218,0.2);
+      color: #ccc;
+    }
+
+    .skill-tag.highlight {
+      border-color: #64ffda;
+      color: #64ffda;
+    }
+
+    .lang-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 9px;
+      padding: 3px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .lang-item:last-child { border-bottom: none; }
+
+    .lang-name { color: #e0e0e0; }
+    .lang-level { color: #64ffda; font-weight: 600; font-size: 8px; }
+
+    .cert-item {
+      font-size: 8.5px;
+      padding: 4px 0;
+    }
+    .cert-item strong { color: #fff; display: block; }
+    .cert-item span { color: #999; font-size: 8px; }
+
+    /* ============================================================
+       MAIN
+       ============================================================ */
+    .main {
+      padding: 28px 28px 20px 28px;
+    }
+
+    .main-header {
+      margin-bottom: 14px;
+    }
+
+    .main-header h1 {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 2px;
+    }
+
+    .main-header .headline {
+      font-size: 11px;
+      color: #0ea5e9;
+      font-weight: 600;
+    }
+
+    .main-header .location {
+      font-size: 9px;
+      color: #888;
+      margin-top: 2px;
+    }
+
+    .summary {
+      font-size: 9px;
+      line-height: 1.6;
+      color: #444;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .section {
+      margin-bottom: 16px;
+    }
+
+    .section-header {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #0ea5e9;
+      padding-bottom: 4px;
+      border-bottom: 2px solid #0ea5e9;
+      margin-bottom: 10px;
+    }
+
+    .project-card {
+      margin-bottom: 12px;
+      padding-left: 10px;
+      border-left: 2px solid #e5e7eb;
+    }
+
+    .project-card.highlight {
+      border-left-color: #0ea5e9;
+    }
+
+    .project-header {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 2px;
+    }
+
+    .project-header h3 {
+      font-size: 11px;
+      font-weight: 700;
+      color: #111;
+    }
+
+    .project-badge {
+      font-size: 7.5px;
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 1px 7px;
+      border-radius: 3px;
+      font-weight: 600;
+    }
+
+    .project-tech {
+      font-size: 8px;
+      color: #666;
+      font-family: 'Fira Code', monospace;
+      margin-bottom: 3px;
+    }
+
+    .project-desc {
+      font-size: 9px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .project-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .metric-badge {
+      font-size: 7.5px;
+      padding: 2px 8px;
+      border-radius: 3px;
+      background: #f0fdf4;
+      color: #166534;
+      font-weight: 600;
+    }
+
+    .metric-badge.alt {
+      background: #f0f9ff;
+      color: #075985;
+    }
+
+    .metric-badge.accent {
+      background: #faf5ff;
+      color: #6b21a8;
+    }
+
+    .os-item {
+      margin-bottom: 8px;
+      padding-left: 10px;
+      border-left: 2px solid #e5e7eb;
+    }
+
+    .os-item h3 {
+      font-size: 10px;
+      font-weight: 700;
+      color: #111;
+    }
+
+    .os-item .org {
+      font-size: 8.5px;
+      color: #0ea5e9;
+      font-weight: 600;
+    }
+
+    .os-item p {
+      font-size: 9px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .os-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .edu-item {
+      margin-bottom: 6px;
+    }
+
+    .edu-item h3 {
+      font-size: 10px;
+      font-weight: 700;
+      color: #111;
+    }
+
+    .edu-item .org {
+      font-size: 9px;
+      color: #0ea5e9;
+      font-weight: 600;
+    }
+
+    .edu-item .period {
+      font-size: 8.5px;
+      color: #999;
+    }
+
+    .edu-item p {
+      font-size: 8.5px;
+      color: #666;
+    }
+
+    .footer-note {
+      font-size: 8px;
+      color: #aaa;
+      text-align: center;
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px solid #eee;
+    }
+
+    /* ============================================================
+       PRINT
+       ============================================================ */
+    @media print {
+      @page { size: A4; margin: 0; }
+      body { background: none; }
+      .page {
+        margin: 0;
+        box-shadow: none;
+        width: 100%;
+        min-height: 100vh;
+      }
+      .sidebar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .avatar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .project-badge,
+      .metric-badge,
+      .metric-badge.alt,
+      .metric-badge.accent,
+      .section-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+    @media screen and (max-width: 800px) {
+      .page {
+        width: 100%;
+        margin: 0;
+        grid-template-columns: 1fr;
+      }
+      body { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- ============================================================
+         SIDEBAR
+         ============================================================ -->
+    <aside class="sidebar">
+      <div class="avatar">DH</div>
+      <div>
+        <div class="name-side">Diego Hernandez</div>
+        <div class="role-side">Fullstack Developer</div>
+      </div>
+
+      <ul class="contact-list">
+        <li><span class="icon">📍</span> Santiago, Chile</li>
+        <li><span class="icon">📧</span> dh8939693@gmail.com</li>
+        <li><span class="icon">📱</span> +56 9 8654 1307</li>
+        <li><span class="icon">🐙</span> github.com/VECTORG99</li>
+        <li><span class="icon">💼</span> linkedin.com/in/vectorg99</li>
+      </ul>
+
+      <div>
+        <div class="sidebar-section-title">Habilidades</div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">Frontend</div>
+          <div class="skill-tags">
+            <span class="skill-tag highlight">React</span>
+            <span class="skill-tag highlight">TypeScript</span>
+            <span class="skill-tag">TailwindCSS</span>
+            <span class="skill-tag">Material UI</span>
+            <span class="skill-tag">Vite</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">Backend</div>
+          <div class="skill-tags">
+            <span class="skill-tag highlight">Python</span>
+            <span class="skill-tag highlight">FastAPI</span>
+            <span class="skill-tag highlight">Java</span>
+            <span class="skill-tag">Spring Boot</span>
+            <span class="skill-tag">Quarkus</span>
+            <span class="skill-tag">Node.js</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">AI / Data</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Llama.cpp</span>
+            <span class="skill-tag">scikit-learn</span>
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">BigQuery</span>
+            <span class="skill-tag">ETL</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">DevOps</div>
+          <div class="skill-tags">
+            <span class="skill-tag highlight">Docker</span>
+            <span class="skill-tag">GitHub Actions</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">PostgreSQL</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">Testing</div>
+          <div class="skill-tags">
+            <span class="skill-tag">pytest</span>
+            <span class="skill-tag">Unit Testing</span>
+            <span class="skill-tag">CI/CD</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sidebar-section-title">Idiomas</div>
+        <div class="lang-item">
+          <span class="lang-name">Español</span>
+          <span class="lang-level">Nativo</span>
+        </div>
+        <div class="lang-item">
+          <span class="lang-name">Inglés</span>
+          <span class="lang-level">Avanzado</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="sidebar-section-title">Certificaciones</div>
+        <div class="cert-item">
+          <strong>Desarrollador Fullstack</strong>
+          <span>DUOC UC — Mar 2026</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ============================================================
+         MAIN
+         ============================================================ -->
+    <main class="main">
+      <div class="main-header">
+        <h1>Diego Hernandez</h1>
+        <div class="headline">Fullstack Developer · Open Source Contributor · Estudiante IA</div>
+        <div class="location">Santiago, Chile</div>
+      </div>
+
+      <div class="summary">
+        <strong>Estudiante de Ingeniería en Informática con mención en IA</strong> en DUOC UC.
+        Contribuidor open source activo con <strong>28+ PRs mergeados</strong> en producción.
+        Construye productos full-stack con Python, Java, React y TypeScript. Creador de
+        <strong>omarchy-frutiger-aero</strong> (7★, destacado en Awesome Omarchy).
+        12 repos públicos, 12 seguidores en GitHub. Busco oportunidades de práctica
+        profesional y roles junior en desarrollo de software.
+      </div>
+
+      <!-- PROYECTOS -->
+      <div class="section">
+        <div class="section-header">Proyectos Destacados</div>
+
+        <div class="project-card highlight">
+          <div class="project-header">
+            <h3>Proyecto Alsort</h3>
+            <span class="project-badge">⭐ Destacado</span>
+          </div>
+          <div class="project-tech">Python · FastAPI · React · TypeScript · Docker · SQLite · CI/CD</div>
+          <div class="project-desc">
+            Gestor inteligente de playlists de Spotify. Extrae canciones favoritas, las enriquece
+            con características de audio y géneros, y permite filtrar con lógica AND/OR
+            (11 tipos de filtro: tempo, año, género, energía, etc.) y ordenar por múltiples
+            criterios para crear playlists directamente en Spotify.
+          </div>
+          <div class="project-metrics">
+            <span class="metric-badge">✓ 57 tests automatizados</span>
+            <span class="metric-badge">🔒 OAuth PKCE</span>
+            <span class="metric-badge">🐳 Docker multi-stage</span>
+            <span class="metric-badge alt">⚙️ GitHub Actions CI/CD</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3>DataGestor — London Crime Platform</h3>
+          </div>
+          <div class="project-tech">Python · BigQuery · Supabase · FastAPI · React · MUI · Docker</div>
+          <div class="project-desc">
+            Plataforma end-to-end de inteligencia territorial. Procesa ~3 millones de registros
+            de criminalidad de Londres mediante pipeline ETL de 10 etapas, modelos scikit-learn
+            para estimación histórica, API FastAPI, y dashboard React con Chart.js.
+          </div>
+          <div class="project-metrics">
+            <span class="metric-badge">📊 10-stage ETL pipeline</span>
+            <span class="metric-badge alt">🤖 ML inference (scikit-learn)</span>
+            <span class="metric-badge accent">📈 Dashboard interactivo</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3>Yap — AI Agent Local</h3>
+          </div>
+          <div class="project-tech">Python · Llama 3.2 · llama.cpp · Bash · Debian · pytest</div>
+          <div class="project-desc">
+            Asistente de IA local para entornos Linux educativos con recursos limitados
+            (CPU-only, sin Internet). Clasificación de intención vía LLM, apertura controlada
+            de apps, webfetch por whitelist, y 3 ramas de configuración para distintos
+            presupuestos de RAM (3.5GB / 3.1GB / 1.8GB).
+          </div>
+          <div class="project-metrics">
+            <span class="metric-badge">✓ 62 tests (seguridad)</span>
+            <span class="metric-badge alt">🔒 Whitelist-based security</span>
+            <span class="metric-badge">📐 3 ramas de RAM</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3>omarchy-frutiger-aero</h3>
+            <span class="project-badge">★ 7 estrellas</span>
+          </div>
+          <div class="project-tech">SCSS · Bash · EWW · SDDM · Hyprland · Waybar · Lua</div>
+          <div class="project-desc">
+            Tema Frutiger Aero completo para Omarchy/Hyprland. Variantes light/dark,
+            6 widgets EWW (clima, reloj, calendario, música, sistema, panel de control),
+            pantalla de login SDDM glassmorphism, 14 wallpapers 4K, instalador automatizado.
+            Destacado en Awesome Omarchy (lista oficial de 376★).
+          </div>
+          <div class="project-metrics">
+            <span class="metric-badge">🎨 6 widgets EWW</span>
+            <span class="metric-badge alt">🌟 Featured en Awesome Omarchy</span>
+            <span class="metric-badge accent">🖥️ 14 wallpapers 4K</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- OPEN SOURCE -->
+      <div class="section">
+        <div class="section-header">Contribuciones Open Source</div>
+
+        <div class="os-item">
+          <h3>os-santiago/homedir</h3>
+          <div class="org">Open Source Santiago · Ene 2025 – Presente</div>
+          <p>
+            Contribuidor activo a plataforma Quarkus para DevRel/Open Source.
+            <strong>28 PRs mergeados</strong> en seguridad (CSP, XSS, CSRF, ZipSlip),
+            accesibilidad (skip-links, roles ARIA, HTML semántico), i18n (paridad ES/EN),
+            frontend (consolidación JS, variables CSS), toolchain (Maven 3.9.16),
+            y páginas de error personalizadas (404/403/500).
+          </p>
+          <div class="os-metrics">
+            <span class="metric-badge">✓ 28 PRs mergeados</span>
+            <span class="metric-badge alt">🔒 Security hardening</span>
+            <span class="metric-badge">♿ Accesibilidad</span>
+            <span class="metric-badge accent">🌐 i18n ES/EN</span>
+          </div>
+        </div>
+
+        <div class="os-item">
+          <h3>awesome-omarchy (curador)</h3>
+          <div class="org">Upstream: 376★ · Fork mantenido</div>
+          <p>
+            Curador del fork de awesome-omarchy, lista curada de recursos del ecosistema
+            Omarchy (150+ entradas). Contribución upstream mergeada: agregó omarchy-frutiger-aero
+            a la lista oficial. Aplica gates de calidad: 5+ estrellas y mantenimiento activo.
+          </p>
+        </div>
+      </div>
+
+      <!-- EDUCACIÓN -->
+      <div class="section">
+        <div class="section-header">Educación</div>
+
+        <div class="edu-item">
+          <h3>Ingeniería en Informática (mención IA)</h3>
+          <div class="org">DUOC UC — Santiago</div>
+          <div class="period">2024 – 2027</div>
+          <p>Enfoque: ingeniería de software, inteligencia artificial, machine learning, data engineering.</p>
+        </div>
+      </div>
+
+      <div class="footer-note">
+        github.com/VECTORG99 · linkedin.com/in/vectorg99 · dh8939693@gmail.com · +56 9 8654 1307
+      </div>
+    </main>
+
+  </div>
+</body>
+</html>
