@@ -1,5 +1,7 @@
 # Portafolio — Diego Hernandez
 
+[![Vercel](https://img.shields.io/badge/deploy-vercel-000?logo=vercel)](https://portafolio-ten-liard-50.vercel.app)
+
 Portafolio web personal. React + Vite, animaciones scroll, modo oscuro/claro, datos desde `src/data/profile.js` (cero strings hardcodeados en componentes).
 
 ## Stack
@@ -33,7 +35,7 @@ npm run build          # dist/ listo para deploy
 
 | Plataforma | URL | Setup |
 |-----------|-----|-------|
-| **Vercel** | `portafolio.vercel.app` | Importar repo, añadir env vars en dashboard |
+| **Vercel** | `portafolio-ten-liard-50.vercel.app` | Importar repo, añadir env vars en dashboard |
 | GitHub Pages | `vectorg99.github.io/Portafolio` | `base: '/Portafolio/'` en vite.config.js |
 | Netlify | `portafolio.netlify.app` | Importar repo |
 
