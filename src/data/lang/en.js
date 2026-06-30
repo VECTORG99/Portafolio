@@ -108,12 +108,12 @@ export default {
     titleHighlight: "Projects",
     items: [
       {
-        title: "Alsort",
-        description: "Smart Spotify playlist manager. Extracts favorite songs, enriches them with audio features and genres, and allows filtering with AND/OR logic (11 filter types) and sorting by multiple criteria to create playlists directly in Spotify.",
-        tags: ["Python", "FastAPI", "React", "TypeScript", "Docker", "SQLite", "CI/CD"],
-        github: "https://github.com/VECTORG99/Proyecto_Alsort",
+        title: "HomeDir",
+        description: "Quarkus platform for DevRel and Open Source communities. Over 28 PRs merged in production focused on security, accessibility, internationalization and toolchain. Active project at Open Source Santiago.",
+        tags: ["Java", "Quarkus", "Docker", "GitHub Actions", "CI/CD", "PostgreSQL", "Linux"],
+        github: "https://github.com/VECTORG99",
         featured: true,
-        metrics: ["57 tests", "OAuth PKCE", "Multi-stage Docker", "CI/CD"],
+        metrics: ["28+ merged PRs", "Open Source Santiago", "Security"],
       },
       {
         title: "DataGestor — London Crime",
@@ -132,11 +132,19 @@ export default {
         metrics: ["62 tests", "Whitelist security", "3 RAM branches"],
       },
       {
+        title: "Alsort",
+        description: "Smart Spotify playlist manager. Extracts favorite songs, enriches them with audio features and genres, and allows filtering with AND/OR logic (11 filter types) and sorting by multiple criteria to create playlists directly in Spotify.",
+        tags: ["Python", "FastAPI", "React", "TypeScript", "Docker", "SQLite", "CI/CD"],
+        github: "https://github.com/VECTORG99/Proyecto_Alsort",
+        featured: false,
+        metrics: ["57 tests", "OAuth PKCE", "Multi-stage Docker", "CI/CD"],
+      },
+      {
         title: "omarchy-frutiger-aero",
         description: "Complete Frutiger Aero theme for Omarchy/Hyprland. Light/dark variants, 6 EWW widgets, SDDM glassmorphism login screen, 14 4K wallpapers and automated installer. Featured on Awesome Omarchy.",
         tags: ["SCSS", "Bash", "EWW", "Hyprland", "Lua", "Linux"],
         github: "https://github.com/VECTORG99/omarchy-frutiger-aero",
-        featured: true,
+        featured: false,
         metrics: ["7 stars", "6 EWW widgets", "14 wallpapers"],
       },
     ],

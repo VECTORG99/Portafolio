@@ -108,12 +108,12 @@ export default {
     titleHighlight: "destacados",
     items: [
       {
-        title: "Proyecto Alsort",
-        description: "Gestor inteligente de playlists de Spotify. Extrae canciones favoritas, las enriquece con características de audio y géneros, y permite filtrar con lógica AND/OR (11 tipos de filtro) y ordenar por múltiples criterios para crear playlists directamente en Spotify.",
-        tags: ["Python", "FastAPI", "React", "TypeScript", "Docker", "SQLite", "CI/CD"],
-        github: "https://github.com/VECTORG99/Proyecto_Alsort",
+        title: "HomeDir",
+        description: "Plataforma Quarkus para comunidades DevRel y Open Source. Más de 28 PRs mergeados en producción enfocados en seguridad, accesibilidad, internacionalización y toolchain. Proyecto activo de Open Source Santiago.",
+        tags: ["Java", "Quarkus", "Docker", "GitHub Actions", "CI/CD", "PostgreSQL", "Linux"],
+        github: "https://github.com/VECTORG99",
         featured: true,
-        metrics: ["57 tests", "OAuth PKCE", "Docker multi-stage", "CI/CD"],
+        metrics: ["28+ PRs mergeados", "Open Source Santiago", "Seguridad"],
       },
       {
         title: "DataGestor — London Crime",
@@ -132,11 +132,19 @@ export default {
         metrics: ["62 tests", "Whitelist security", "3 RAM branches"],
       },
       {
+        title: "Proyecto Alsort",
+        description: "Gestor inteligente de playlists de Spotify. Extrae canciones favoritas, las enriquece con características de audio y géneros, y permite filtrar con lógica AND/OR (11 tipos de filtro) y ordenar por múltiples criterios para crear playlists directamente en Spotify.",
+        tags: ["Python", "FastAPI", "React", "TypeScript", "Docker", "SQLite", "CI/CD"],
+        github: "https://github.com/VECTORG99/Proyecto_Alsort",
+        featured: false,
+        metrics: ["57 tests", "OAuth PKCE", "Docker multi-stage", "CI/CD"],
+      },
+      {
         title: "omarchy-frutiger-aero",
         description: "Tema Frutiger Aero completo para Omarchy/Hyprland. Variantes light/dark, 6 widgets EWW, pantalla de login SDDM glassmorphism, 14 wallpapers 4K e instalador automatizado. Destacado en Awesome Omarchy.",
         tags: ["SCSS", "Bash", "EWW", "Hyprland", "Lua", "Linux"],
         github: "https://github.com/VECTORG99/omarchy-frutiger-aero",
-        featured: true,
+        featured: false,
         metrics: ["7 estrellas", "6 widgets EWW", "14 wallpapers"],
       },
     ],
