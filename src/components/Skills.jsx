@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import profile from '../data/profile';
+import { useLanguage } from '../context/LanguageContext';
 
 const containerVariants = {
   hidden: {},
@@ -24,6 +24,7 @@ const skillVariants = {
 };
 
 export default function Skills() {
+  const { profile } = useLanguage();
   const [ref, isInView] = useScrollAnimation();
 
   return (

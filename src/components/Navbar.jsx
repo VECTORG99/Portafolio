@@ -1,17 +1,17 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import profile from '../data/profile';
-
-const navLinks = [
-  { href: '#about', label: profile.about.label },
-  { href: '#skills', label: profile.skills.label },
-  { href: '#experience', label: profile.experience.label },
-  { href: '#projects', label: profile.projects.label },
-  { href: '#contact', label: profile.contact.label },
-  { href: profile.contact.cvUrl, label: 'CV' },
-];
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Navbar({ theme, toggleTheme }) {
+  const { profile, toggleLang } = useLanguage();
+  const navLinks = [
+    { href: '#about', label: profile.about.label },
+    { href: '#skills', label: profile.skills.label },
+    { href: '#experience', label: profile.experience.label },
+    { href: '#projects', label: profile.projects.label },
+    { href: '#contact', label: profile.contact.label },
+    { href: profile.contact.cvUrl, label: 'CV' },
+  ];
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -41,6 +41,13 @@ export default function Navbar({ theme, toggleTheme }) {
               {link.label}
             </a>
           ))}
+          <button
+            onClick={toggleLang}
+            className="navbar__lang-btn"
+            aria-label={`Switch to ${profile.site.langSwitch}`}
+          >
+            {profile.site.langSwitch}
+          </button>
           <button
             onClick={toggleTheme}
             className="navbar__theme-btn"
@@ -95,6 +102,9 @@ export default function Navbar({ theme, toggleTheme }) {
                 {link.label}
               </a>
             ))}
+            <button onClick={toggleLang} className="navbar__lang-btn mobile">
+              {profile.site.langSwitch}
+            </button>
             <button onClick={toggleTheme} className="navbar__theme-btn mobile">
               {theme === 'dark' ? '☀️ Claro' : '🌙 Oscuro'}
             </button>

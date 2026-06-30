@@ -1,4 +1,6 @@
 import { useTheme } from './hooks/useTheme';
+import { LanguageProvider } from './context/LanguageContext';
+import ErrorBoundary from './components/ErrorBoundary';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -12,17 +14,19 @@ export default function App() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <>
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Contact />
-      </main>
-      <Footer />
-    </>
+    <LanguageProvider>
+      <ErrorBoundary>
+        <Navbar theme={theme} toggleTheme={toggleTheme} />
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          <Experience />
+          <Projects />
+          <Contact />
+        </main>
+        <Footer />
+      </ErrorBoundary>
+    </LanguageProvider>
   );
 }

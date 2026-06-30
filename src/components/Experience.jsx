@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import profile from '../data/profile.js';
+import { useLanguage } from '../context/LanguageContext';
 
 const typeEmoji = {
   education: '🎓',
@@ -24,6 +24,7 @@ const itemVariants = {
 };
 
 export default function Experience() {
+  const { profile } = useLanguage();
   const containerRef = useRef(null);
   const [ref, isInView] = useScrollAnimation();
 

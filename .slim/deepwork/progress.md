@@ -1,32 +1,41 @@
-# Deepwork — Portafolio Apple-Scroll
+# Deepwork: Portafolio — Implementación final
 
-Started: 2026-06-20
-Status: ALL PHASES COMPLETE — awaiting final review
+**Inicio:** 2026-06-30  
+**Fin:** 2026-06-30  
+**Goal:** Portafolio producción-ready — foto real, bilingüe, SEO, CI/CD a Vercel
 
-## Progress
+## Plan (6 fases)
 
-| Phase | Status | Result |
-|-------|--------|--------|
-| 0 — Data layer | ✅ Complete | `src/data/profile.js`, CV moved to `public/cv/`, `.env` in gitignore |
-| 1 — Supabase local | ✅ Complete | Migration + seed SQL, `src/lib/supabase.js` with env-var guard, `.env.example` |
-| 2 — Navbar | ✅ Complete | Data-driven links, logo from profile |
-| 3 — Hero | ✅ Complete | All text from profile.hero, parallax preserved |
-| 4 — About | ✅ Complete | Stats from profile, simple GitHub/LinkedIn links (no preview cards) |
-| 5 — Experience | ✅ Complete | Timeline items from profile.experience.items, 4 entries |
-| 6 — Projects | ✅ Complete | Supabase fetch → fallback to profile, try/catch error handling, skeleton loading |
-| 7 — Skills + Footer | ✅ Complete | Skills categories from profile, footer from profile.site |
-| 8 — Contact + CTA | ✅ Complete | Form with 5 states (idle/sending/success/error/no-supabase), social lookup map, CV download |
-| 9 — Integration | ✅ Complete | Build passes (234ms, 473 modules), dev server verified |
+| # | Fase | Archivos | Estado |
+|---|------|----------|--------|
+| 0 | Fix Supabase data shape | `Projects.jsx` — transform layer | ✅ |
+| 1 | SEO + OG + robots + sitemap | `index.html`, `public/robots.txt`, `public/sitemap.xml`, `public/og-image.svg` | ✅ |
+| 2 | Foto About (inicial D) | `About.jsx`, `App.css` — placeholder + glow + links | ✅ |
+| 3 | i18n ES/EN | `lang/es.js`, `lang/en.js`, `LanguageContext.jsx`, todos los componentes, `App.jsx` | ✅ |
+| 4 | GitHub Actions → Vercel | `.github/workflows/deploy.yml` | ✅ |
+| 5 | Polish | `ErrorBoundary.jsx`, `public/404.html`, dead assets, README, CSS | ✅ |
 
-## Key decisions
-- Zero hardcoded strings in any component. All content from `src/data/profile.js`.
-- Supabase null-guard: `hasSupabase = !!(import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY)`
-- CV served from `public/cv/cv.html` (Vercel static file serving)
-- Oracle feedback applied: no tag coloring, no preview cards, no useScrollDirection, proper env var guard, .env in gitignore, form states
+## Oracle reviews
 
-## Build output
+| Fase | Revisión | Issues | Veredicto |
+|------|----------|--------|-----------|
+| — | Plan completo | 1. F0: eliminar migration V2. 2. F1: og:image. 3. F3: navLinks scope + html lang | CHANGES REQUESTED ✅ |
+
+## Decisiones
+
+1. i18n sin librería — dos objetos lang + React Context
+2. Supabase bug fix solo en componente (transform layer), sin migration
+3. Foto placeholder con inicial "D" + glow (en vez de `public/img/`)
+4. ErrorBoundary como class component
+5. 404 como HTML estático para Vercel
+6. Language toggle en Navbar, sin dropdown
+7. OG image como SVG (no PNG, sin GEMINI_API_KEY disponible)
+
+## Build final
+
 ```
-dist/index.html                   0.90 kB
-dist/assets/index-D0JW_JU3.css   16.53 kB
-dist/assets/index-CIaPKAhb.js   351.93 kB
+✓ built in 160ms — 476 modules
+dist/index.html                  1.97 kB │ gzip: 0.71 kB
+dist/assets/index-ChUwLQr4.css  17.27 kB │ gzip: 3.86 kB
+dist/assets/index-BBPiUgQH.js  359.28 kB │ gzip: 113.40 kB
 ```

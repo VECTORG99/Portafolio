@@ -1,9 +1,10 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import profile from '../data/profile';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function About() {
+  const { profile } = useLanguage();
   const containerRef = useRef(null);
   const [ref, isInView] = useScrollAnimation();
 
@@ -78,13 +79,24 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="about__image-wrapper"
             >
+              <div className="about__image-glow" />
+              <div className="about__image-placeholder">
+                {profile.dev.firstName.charAt(0)}
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="about__links"
+            >
               <a
                 href={profile.dev.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn"
               >
-                Ver GitHub
+                GitHub
               </a>
               <a
                 href={profile.dev.linkedinUrl}
@@ -92,7 +104,7 @@ export default function About() {
                 rel="noopener noreferrer"
                 className="btn btn--ghost"
               >
-                Ver LinkedIn
+                LinkedIn
               </a>
             </motion.div>
           </motion.div>

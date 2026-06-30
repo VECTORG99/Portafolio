@@ -1,6 +1,7 @@
-import profile from '../data/profile';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Footer() {
+  const { profile } = useLanguage();
   return (
     <footer className="footer">
       <div className="container">

@@ -1,8 +1,9 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import profile from '../data/profile.js';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Hero() {
+  const { profile } = useLanguage();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,

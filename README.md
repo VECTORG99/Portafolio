@@ -53,7 +53,13 @@ npm run build          # dist/ listo para deploy
 
 ## Pendiente
 
-1. Foto real en sección About (placeholder con inicial D)
-2. Soporte multilenguaje ES/EN
-3. SEO y Open Graph
-4. Deploy automático con GitHub Actions
+Nada — todas las funcionalidades planificadas están implementadas.
+
+| Feature | Estado |
+|---------|--------|
+| Foto/sección visual en About | ✅ Placeholder con inicial y glow |
+| Soporte multilenguaje ES/EN | ✅ Context + toggle en navbar |
+| SEO y Open Graph | ✅ OG/Twitter tags + robots + sitemap |
+| Deploy automático con GitHub Actions | ✅ Workflow a Vercel |
+| Error boundary | ✅ |
+| Cleanup de assets muertos | ✅ |

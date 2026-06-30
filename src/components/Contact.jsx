@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import profile from '../data/profile';
+import { useLanguage } from '../context/LanguageContext';
 import { supabase, hasSupabase } from '../lib/supabase';
 
 const socialSvgIcons = {
@@ -24,6 +24,7 @@ const socialSvgIcons = {
 };
 
 export default function Contact() {
+  const { profile } = useLanguage();
   const [ref, isInView] = useScrollAnimation();
   const [formState, setFormState] = useState({ email: '', message: '' });
   const [status, setStatus] = useState('idle');
@@ -135,7 +136,7 @@ export default function Contact() {
               className="btn btn--primary"
               disabled={!hasSupabase || status === 'sending'}
             >
-              {status === 'sending' ? 'Enviando...' : c.formSubmitLabel}
+              {status === 'sending' ? c.formSendingLabel : c.formSubmitLabel}
             </button>
             {!hasSupabase && (
               <p className="contact__form-hint">{c.formNoSupabase}</p>
