@@ -2,14 +2,17 @@
 
 [![Vercel](https://img.shields.io/badge/deploy-vercel-000?logo=vercel)](https://portafolio-ten-liard-50.vercel.app)
 
-Portafolio web personal. React + Vite, animaciones scroll, modo oscuro/claro, i18n ES/EN, datos desde Supabase + `src/data/` con fallback.
+Portafolio web personal construido con **React 19 + Vite**. Animaciones scroll con Framer Motion, modo oscuro/claro, i18n ES/EN, datos desde Supabase + `src/data/` con fallback. Sin dependencias pesadas ni frameworks CSS.
 
 ## Stack
 
-- React 19 + Vite
-- Framer Motion (animaciones)
-- Supabase (formulario de contacto)
-- CSS vanilla (variables, flexbox, grid)
+| Tecnología | Para qué se usa | Se nota en |
+|-----------|----------------|------------|
+| **React 19** | Componentes reutilizables (Hero, About, Projects, Contact, Navbar), estado global con Context (idioma, tema), ciclo de vida (useEffect para fetch de proyectos) | `src/components/*.jsx` — JSX, hooks, props |
+| **Vite** | Servidor de desarrollo rápido (HMR), build con tree-shaking, plugin de React | `package.json` → scripts `dev`/`build`, `vite.config.js` |
+| **Framer Motion** | Animaciones de entrada (scroll reveal), hover, transiciones suaves | Componentes con `motion.div`, `initial`/`whileInView` |
+| **Supabase** | Backend serverless: formulario de contacto (insert), proyectos destacados (fetch con fallback local), sin necesidad de servidor propio | `src/lib/supabase.js` → cliente con degrade graceful |
+| **CSS vanilla** | Layouts (flexbox/grid), modo oscuro/claro con variables CSS, responsivo sin frameworks | `src/index.css`, variables `--color-*`, media queries |
 
 ## Arquitectura
 
