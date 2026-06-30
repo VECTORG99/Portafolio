@@ -80,9 +80,12 @@ export default function About() {
               className="about__image-wrapper"
             >
               <div className="about__image-glow" />
-              <div className="about__image-placeholder">
-                {profile.dev.firstName.charAt(0)}
-              </div>
+              <img
+                src="/img/perf.jpeg"
+                alt={profile.dev.firstName}
+                className="about__photo"
+                loading="lazy"
+              />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}

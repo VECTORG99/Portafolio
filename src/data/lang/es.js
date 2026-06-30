@@ -13,7 +13,7 @@ export default {
     linkedinUrl: "https://www.linkedin.com/in/vectorg99/",
   },
   hero: {
-    badge: "Disponible para práctica profesional",
+    badge: "Disponible para trabajar",
     greeting: "Diego",
     highlight: "Hernandez",
     role: "Desarrollador Fullstack & Open Source Contributor",
@@ -120,7 +120,7 @@ export default {
         description: "Plataforma end-to-end de inteligencia territorial. Procesa ~3 millones de registros de criminalidad de Londres mediante pipeline ETL de 10 etapas, modelos ML scikit-learn, API FastAPI y dashboard React con Chart.js.",
         tags: ["Python", "BigQuery", "Supabase", "FastAPI", "React", "Docker"],
         github: "https://github.com/VECTORG99/DataGestor",
-        featured: false,
+        featured: true,
         metrics: ["10-stage ETL", "ML scikit-learn", "Dashboard React"],
       },
       {
@@ -128,7 +128,7 @@ export default {
         description: "Asistente de IA local para entornos Linux educativos con recursos limitados (CPU-only). Clasificación de intención vía LLM, apertura controlada de apps, webfetch por whitelist, y 3 ramas de configuración para distintos presupuestos de RAM.",
         tags: ["Python", "Llama 3.2", "llama.cpp", "Bash", "Debian"],
         github: "https://github.com/VECTORG99/Yap",
-        featured: false,
+        featured: true,
         metrics: ["62 tests", "Whitelist security", "3 RAM branches"],
       },
       {
