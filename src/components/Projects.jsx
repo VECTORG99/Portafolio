@@ -32,7 +32,7 @@ export default function Projects() {
           if (data?.length) {
             setProjects(data.map(p => ({
               ...p,
-              github: p.github_url,
+              github: p.github,
               metrics: p.metrics ?? (p.stars != null ? [`${p.stars} ★`] : undefined),
             })));
             return;

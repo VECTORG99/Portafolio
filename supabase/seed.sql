@@ -1,5 +1,5 @@
 -- Seed projects from profile data
-insert into public.projects (title, description, tags, github_url, stars, featured) values
+insert into public.projects (title, description, tags, github, stars, featured) values
 (
   'HomeDir',
   'Plataforma Quarkus para comunidades DevRel y Open Source. Más de 28 PRs mergeados en producción enfocados en seguridad, accesibilidad, internacionalización y toolchain.',
