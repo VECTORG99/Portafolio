@@ -25,19 +25,16 @@ export default function Projects() {
     async function loadProjects() {
       if (hasSupabase) {
         try {
-          const { data, error } = await supabase
+          const { data } = await supabase
             .from('projects')
             .select('*')
             .order('featured', { ascending: false });
-          if (data && data.length > 0) {
-            // ponytail: shape transform — schema uses github_url/stars, component expects github/metrics
-            const transformed = data.map(p => ({
+          if (data?.length) {
+            setProjects(data.map(p => ({
               ...p,
-              github: p.github || p.github_url,
-              demo: p.demo_url,
-              metrics: p.metrics || (p.stars != null ? [`${p.stars} ★`] : undefined),
-            }));
-            setProjects(transformed);
+              github: p.github_url,
+              metrics: p.metrics ?? (p.stars != null ? [`${p.stars} ★`] : undefined),
+            })));
             return;
           }
         } catch {

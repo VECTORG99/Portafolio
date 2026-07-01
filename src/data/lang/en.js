@@ -44,7 +44,7 @@ export default {
       {
         name: "Frontend",
         icon: "</>",
-        tags: ["React", "TypeScript", "JavaScript", "HTML5", "CSS3", "Vite", "Material UI", "TailwindCSS"],
+        tags: ["React", "TypeScript", "JavaScript", "HTML5", "CSS3", "Vite", "Material UI"],
       },
       {
         name: "Backend",
