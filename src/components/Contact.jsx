@@ -155,13 +155,6 @@ export default function Contact() {
             ))}
           </div>
 
-          {/* CV CTA */}
-          <div className="contact__cv">
-            <a href={c.cvUrl} className="btn btn--primary" download>
-              {c.cvLabel}
-            </a>
-            <p className="contact__cv-badge">{c.cvBadge}</p>
-          </div>
         </motion.div>
       </div>
     </section>

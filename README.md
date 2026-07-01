@@ -20,7 +20,7 @@ Portafolio web personal construido con **React 19 + Vite**. Animaciones scroll c
 src/data/              ← textos, i18n ES/EN, perfil
 src/lib/supabase.js    ← cliente Supabase con fetch de proyectos + graceful degradation
 src/components/        ← componentes data-driven
-public/cv/cv.html      ← CV estático (Ctrl+P → PDF)
+public/cv/             ← CV en PDF (ES + EN)
 ```
 
 Los proyectos destacados se cargan desde Supabase. Si no hay conexión, se usa `src/data/lang/es.js` / `en.js` como fallback.

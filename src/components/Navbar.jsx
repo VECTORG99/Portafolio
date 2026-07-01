@@ -10,7 +10,6 @@ export default function Navbar({ theme, toggleTheme }) {
     { href: '#experience', label: profile.experience.label },
     { href: '#projects', label: profile.projects.label },
     { href: '#contact', label: profile.contact.label },
-    { href: profile.contact.cvUrl, label: 'CV' },
   ];
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
