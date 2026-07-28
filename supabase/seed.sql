@@ -1,6 +1,14 @@
 -- Seed projects from profile data
 insert into public.projects (title, description, tags, github, stars, featured) values
 (
+  'Artemisa',
+  'Generador stateless y determinista de bundles de configuración para agentes de desarrollo compatibles con 6+ plataformas (Kiro, Cursor, Claude Code, etc.). Un árbol de decisiones explicable de 32 preguntas produce artefactos reproducibles (AGENTS.md, .kiro/, .cursorrules, mcp.json, skills) con hashes SHA-256. Construido para el Hackathon Kiro x Código Facilito 2026 con Kiro como IDE agentic. Backend en DigitalOcean App Platform, frontend en Netlify.',
+  array['TypeScript', 'Next.js', 'Express', 'Node.js', 'Kiro', 'MCP', 'DigitalOcean', 'Netlify', 'AI Agents'],
+  'https://github.com/VECTORG99/Artemisa',
+  0,
+  true
+),
+(
   'HomeDir',
   'Plataforma Quarkus para comunidades DevRel y Open Source. Más de 28 PRs mergeados en producción enfocados en seguridad, accesibilidad, internacionalización y toolchain.',
   array['Java', 'Quarkus', 'Docker', 'GitHub Actions', 'CI/CD', 'PostgreSQL', 'Linux'],
