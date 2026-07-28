@@ -108,6 +108,15 @@ export default {
     titleHighlight: "Projects",
     items: [
       {
+        title: "Artemisa",
+        description: "Stateless, deterministic config-bundle generator for development agents compatible with 6+ platforms (Kiro, Cursor, Claude Code, etc.). An explainable 32-question decision tree produces reproducible artifacts (AGENTS.md, .kiro/, .cursorrules, mcp.json, skills) with SHA-256 hashes. Built for the Kiro x Código Facilito 2026 Hackathon using Kiro as the agentic IDE. Backend on DigitalOcean App Platform, frontend on Netlify.",
+        tags: ["TypeScript", "Next.js", "Express", "Node.js", "Kiro", "MCP", "DigitalOcean", "Netlify", "AI Agents"],
+        github: "https://github.com/VECTORG99/Artemisa",
+        demo: "https://artemisa-ai.netlify.app",
+        featured: true,
+        metrics: ["Kiro x Código Facilito 2026 Hackathon", "32-question decision tree", "DigitalOcean + Netlify"],
+      },
+      {
         title: "HomeDir",
         description: "Quarkus platform for DevRel and Open Source communities. Over 28 PRs merged in production focused on security, accessibility, internationalization and toolchain. Active project at Open Source Santiago.",
         tags: ["Java", "Quarkus", "Docker", "GitHub Actions", "CI/CD", "PostgreSQL", "Linux"],
