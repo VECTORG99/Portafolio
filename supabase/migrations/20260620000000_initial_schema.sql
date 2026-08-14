@@ -4,8 +4,8 @@ create table if not exists public.projects (
   title text not null,
   description text,
   tags text[] default '{}',
-  github_url text,
-  demo_url text,
+  github text,
+  demo text,
   stars integer default 0,
   featured boolean default false,
   created_at timestamptz default now()

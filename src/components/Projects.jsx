@@ -37,8 +37,8 @@ export default function Projects() {
             })));
             return;
           }
-        } catch {
-          // silent fallback
+        } catch (err) {
+          console.error('Error loading projects from Supabase:', err);
         }
       }
       setProjects(profile.projects.items);
@@ -84,7 +84,7 @@ export default function Projects() {
               </div>
             ))
           ) : projects.length === 0 ? (
-            null
+            <p className="projects__empty">No hay proyectos disponibles</p>
           ) : (
             projects.map((project, idx) => (
               <motion.div
