@@ -177,6 +177,11 @@ export default {
     formError: "Error sending. Please try again.",
     formNoSupabase: "Form disabled — configure Supabase to enable it.",
   },
+  errorBoundary: {
+    title: "Something went wrong",
+    message: "Reload the page to try again.",
+    button: "Reload",
+  },
   socials: [
     { label: "GitHub", href: "https://github.com/VECTORG99", icon: "github" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/vectorg99/", icon: "linkedin" },

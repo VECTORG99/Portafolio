@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useLanguage } from '../context/LanguageContext';
 import { supabase, hasSupabase } from '../lib/supabase.js';
+import LoadingSpinner from './LoadingSpinner';
 
 const containerVariants = {
   hidden: {},
@@ -19,11 +20,13 @@ const cardVariants = {
 export default function Projects() {
   const { profile } = useLanguage();
   const [projects, setProjects] = useState(null);
+  const [isFetching, setIsFetching] = useState(false);
   const [ref, isInView] = useScrollAnimation();
 
   useEffect(() => {
     async function loadProjects() {
       if (hasSupabase) {
+        setIsFetching(true);
         try {
           const { data } = await supabase
             .from('projects')
@@ -39,6 +42,8 @@ export default function Projects() {
           }
         } catch (err) {
           console.error('Error loading projects from Supabase:', err);
+        } finally {
+          setIsFetching(false);
         }
       }
       setProjects(profile.projects.items);
@@ -64,6 +69,8 @@ export default function Projects() {
             {title} <span className="gradient-text">{titleHighlight}</span>
           </h2>
         </motion.div>
+
+        {isFetching && <LoadingSpinner />}
 
         <motion.div
           className="projects__grid"

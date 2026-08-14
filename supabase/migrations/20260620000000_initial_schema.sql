@@ -32,3 +32,23 @@ create policy "Anyone can read projects"
 create policy "Anyone can insert contact messages"
   on public.contact_messages for insert
   with check (true);
+
+-- Policies: public can read contact messages
+create policy "Public can read contact messages"
+  on public.contact_messages for select
+  using (true);
+
+-- Policies: only admins can update contact messages
+create policy "Admins can update contact messages"
+  on public.contact_messages for update
+  using (auth.role() = 'authenticated')
+  with check (auth.role() = 'authenticated');
+
+-- Policies: only admins can delete contact messages
+create policy "Admins can delete contact messages"
+  on public.contact_messages for delete
+  using (auth.role() = 'authenticated');
+
+-- Indexes for faster queries on projects table
+create index if not exists idx_projects_featured on public.projects (featured);
+create index if not exists idx_projects_created_at on public.projects (created_at);
