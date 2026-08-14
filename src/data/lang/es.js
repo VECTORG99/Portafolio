@@ -177,6 +177,11 @@ export default {
     formError: "Error al enviar. Intenta de nuevo.",
     formNoSupabase: "Formulario desactivado — configura Supabase para habilitarlo.",
   },
+  errorBoundary: {
+    title: "Algo salió mal",
+    message: "Recarga la página para intentar de nuevo.",
+    button: "Recargar",
+  },
   socials: [
     { label: "GitHub", href: "https://github.com/VECTORG99", icon: "github" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/vectorg99/", icon: "linkedin" },
