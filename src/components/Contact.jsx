@@ -40,7 +40,8 @@ export default function Contact() {
       });
       setStatus('success');
       setFormState({ email: '', message: '' });
-    } catch {
+    } catch (err) {
+      console.error('Error submitting contact form:', err);
       setStatus('error');
     }
   };
