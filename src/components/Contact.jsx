@@ -1,8 +1,6 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useLanguage } from '../context/LanguageContext';
-import { supabase, hasSupabase } from '../lib/supabase';
 
 const socialSvgIcons = {
   github: (
@@ -26,26 +24,6 @@ const socialSvgIcons = {
 export default function Contact() {
   const { profile } = useLanguage();
   const [ref, isInView] = useScrollAnimation();
-  const [formState, setFormState] = useState({ email: '', message: '' });
-  const [status, setStatus] = useState('idle');
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!hasSupabase) return;
-    setStatus('sending');
-    try {
-      await supabase.from('contact_messages').insert({
-        email: formState.email,
-        message: formState.message,
-      });
-      setStatus('success');
-      setFormState({ email: '', message: '' });
-    } catch (err) {
-      console.error('Error submitting contact form:', err);
-      setStatus('error');
-    }
-  };
-
   const c = profile.contact;
 
   return (
@@ -97,46 +75,6 @@ export default function Contact() {
               </div>
             </div>
           </div>
-
-          {/* Contact form */}
-          <form className="contact__form" onSubmit={handleSubmit}>
-            <div className="contact__form-field">
-              <input
-                type="email"
-                placeholder={c.formEmailPlaceholder}
-                value={formState.email}
-                onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                required
-                disabled={!hasSupabase || status === 'sending'}
-              />
-            </div>
-            <div className="contact__form-field">
-              <textarea
-                placeholder={c.formMessagePlaceholder}
-                value={formState.message}
-                onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                required
-                rows={4}
-                disabled={!hasSupabase || status === 'sending'}
-              />
-            </div>
-            <button
-              type="submit"
-              className="btn btn--primary"
-              disabled={!hasSupabase || status === 'sending'}
-            >
-              {status === 'sending' ? c.formSendingLabel : c.formSubmitLabel}
-            </button>
-            {!hasSupabase && (
-              <p className="contact__form-hint">{c.formNoSupabase}</p>
-            )}
-            {status === 'success' && (
-              <div className="contact__toast contact__toast--success">{c.formSuccess}</div>
-            )}
-            {status === 'error' && (
-              <div className="contact__toast contact__toast--error">{c.formError}</div>
-            )}
-          </form>
 
           {/* Social links */}
           <div className="contact__social">
